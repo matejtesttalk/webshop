@@ -1,0 +1,24 @@
+{
+  "id": 1,
+  "customer": {
+    "id": 1,
+    "firstName": "matej",
+    "lastName": "ja",
+    "email": "test@test.com"
+  },
+  "orderItems": [
+    {
+      "id": 1,
+      "product": {
+        "id": 1,
+        "code": "1234567890",
+        "name": "Kotac",
+        "priceHrk": 20.00,
+        "description": "ovo je desc",
+        "isAvailable": true
+      },
+      "quantity": 42
+    }
+  ],
+  "status": "SUBMITTED"
+}

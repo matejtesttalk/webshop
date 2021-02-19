@@ -1,0 +1,29 @@
+= Setting up Local env
+
+Project uses PostgreDb in docker container with standard port.
+Project doesn't include flyway or liquibase since it wasn't asked.
+To set up DB tables script should be equal to models with exception to trigger on Delete Cascade which should be used on OrderItem.product_id foreign key.
+Customers need to be predefined in a database.
+
+= Spring Boot Application
+
+These properties can be used to run application:
+
+--------------------------------------------------------------
+spring.datasource.url=jdbc:postgresql://0.0.0.0:5432/
+spring.datasource.username=postgres
+spring.datasource.password=zadatakpass
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+
+#this can be used if you don't want to run scripts. But it is not recommended.
+#spring.jpa.generate-ddl=true
+
+#since version 2.3 spring boot is not retuning messages because of client leaks. So this property is needed if message it to be displayed. This should be used only for development.
+server.error.include-message:always
+#custom property which autoconfigures WebClient
+hnb.url=http://api.hnb.hr/tecajn/v2
+#custom property which is used to configure timeout for WebClient.
+hnb.timeOutSeconds= 10
+--------------------------------------------------------------
+
+Database needs to be set up in order for application to be run.
